@@ -56,12 +56,17 @@ def transfer_to_report_generator(
         ),
         None,
     )
+    retrieved_context = (
+        retrieval_message.content
+        if retrieval_message is not None
+        else "No relevant context was retrieved."
+    )
 
     return Command(
         goto="report_generator_agent",
         update={
             "messages": [last_ai_message, transfer_message],
-            "retrieved_context": retrieval_message.content,
+            "retrieved_context": retrieved_context,
         },
         graph=Command.PARENT,
     )
