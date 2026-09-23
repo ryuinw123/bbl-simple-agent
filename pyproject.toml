@@ -1,7 +1,7 @@
 [project]
 name = "bbl-simple-agent"
 version = "0.1.0"
-description = "Add your description here"
+description = "Hotel Californian RAG assistant with Data Retriever and Report Generator agents built using LangChain and LangGraph."
 readme = "README.md"
 authors = [
     { name = "ryuinw123", email = "romtham.thang@gmail.com" }

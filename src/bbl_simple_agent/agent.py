@@ -36,7 +36,7 @@ def main() -> None:
     # Accept an optional query while keeping a useful default for local testing.
     parser = argparse.ArgumentParser(description="Command-based routing")
     parser.add_argument(
-        "query", nargs="?", default="Hi, I'm having trouble with my account login. Can you help?"
+        "query", nargs="?", default="Is there a picnic area at hotel californian?"
     )
     args = parser.parse_args()
 

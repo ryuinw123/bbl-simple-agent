@@ -80,9 +80,6 @@ Install the project dependencies, including the LangGraph CLI:
 uv sync
 ```
 
-The LangGraph CLI is a main dependency, so `--extra dev` is not needed. The
-project does not define a `dev` extra.
-
 Create or update `.env` in the repository root. Set `CHAT_MODEL` to your chosen
 model in `provider:model` format and add the credentials required by that
 provider. For example, to use an OpenAI model:
@@ -90,7 +87,6 @@ provider. For example, to use an OpenAI model:
 ```dotenv
 OPENAI_API_KEY=your_openai_api_key
 CHAT_MODEL=openai:gpt-5-nano-2025-08-07
-LANGSMITH_TRACING=false
 ```
 
 For another provider, install its LangChain integration package and set its
@@ -109,8 +105,8 @@ To enable LangSmith tracing, set `LANGSMITH_TRACING=true` and configure
 uv run bbl-simple-agent "Is there a picnic area at hotel californian?"
 ```
 
-The command prints the final response. Supply a hotel-related question; the
-current fallback query used when no argument is given concerns account login.
+The command prints the final response. If no query is supplied, it uses
+"Is there a picnic area at hotel californian?" by default.
 
 The first retrieval may take longer while the embedding model downloads and the
 in-memory index is created.
@@ -124,19 +120,6 @@ uv run langgraph dev
 `langgraph.json` exposes the graph as `bbl_simple_agent`, loading
 `bbl_simple_agent.agent:graph`. Use the URLs printed by the server to access the
 local API and development interface.
-
-Example graph input:
-
-```json
-{
-  "messages": [
-    {
-      "role": "user",
-      "content": "Is there a picnic area at hotel californian?"
-    }
-  ]
-}
-```
 
 ## Example results
 
@@ -173,7 +156,7 @@ Restart the process after changing configuration.
 ```text
 src/bbl_simple_agent/
 |-- __init__.py
-|-- agent.py                 # Graph construction, exported graph, and CLI
+|-- agent.py                 # Graph construction
 |-- config.py                # Environment settings and validation
 |-- rag/
 |   |-- __init__.py
