@@ -153,6 +153,11 @@ Restart the process after changing configuration.
 
 ## Project structure
 
+The layout is based on the Python `pyproject.toml` example in the
+[LangGraph application structure guide](https://docs.langchain.com/oss/python/langgraph/application-structure),
+adapted to a `src/` package layout with a `rag/` directory for the knowledge base
+and document loading.
+
 ```text
 src/bbl_simple_agent/
 |-- __init__.py
