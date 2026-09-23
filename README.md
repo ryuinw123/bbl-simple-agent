@@ -58,6 +58,14 @@ Data Retriever's message history. During handoff,
 `ContextAgentState.retrieved_context` using a `Command` update. The Report
 Generator reads this field and the latest user question to build its prompt.
 
+The final prompt is constructed from `REPORT_GENERATOR_PROMPT` in
+[prompts.py](src/bbl_simple_agent/utils/prompts.py), filling `{question}` with
+the user's question and `{context}` with the retrieved document snippets.
+The template uses few-shot examples to demonstrate the desired response style,
+including concise lists and clear acknowledgments of missing information.
+These examples guide style only; hotel-specific facts must come from the
+retrieved documents.
+
 The snippets could also be passed through the shared `messages` history.
 That approach would require the handoff to forward the retrieval messages and
 the Report Generator to read them.
