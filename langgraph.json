@@ -1,0 +1,7 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "bbl_simple_agent": "bbl_simple_agent.agent:graph"
+  },
+  "env": ".env"
+}
