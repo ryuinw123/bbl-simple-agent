@@ -59,7 +59,7 @@ def transfer_to_report_generator(
     retrieved_context = (
         retrieval_message.content
         if retrieval_message is not None
-        else "No relevant context was retrieved."
+        else None
     )
 
     return Command(
