@@ -22,7 +22,7 @@ retrieved information.
 - **Role/Instructions:** Expert writer and synthesizer. Uses the supplied
   snippets to produce a comprehensive, accurate, non-redundant, and
   well-formatted answer to the user's query.
-- **Tool:** No additional tools; this agent is configured with `tools=[]`.
+- **Tool:** No additional tools.
 - **Output:** The final, polished answer presented to the user.
 
 ## How it works
