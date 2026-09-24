@@ -66,9 +66,7 @@ including concise lists and clear acknowledgments of missing information.
 These examples guide style only; hotel-specific facts must come from the
 retrieved documents.
 
-The snippets could also be passed through the shared `messages` history.
-That approach would require the handoff to forward the retrieval messages and
-the Report Generator to read them.
+The user's question is placed after the retrieved context, near the end of the prompt, to reduce the needle-in-a-haystack effect and help the model focus on the user's question when generating its final response.
 
 ## Requirements
 
@@ -115,9 +113,6 @@ uv run bbl-simple-agent "Is there a picnic area at hotel californian?"
 
 The command prints the final response. If no query is supplied, it uses
 "Is there a picnic area at hotel californian?" by default.
-
-The first retrieval may take longer while the embedding model downloads and the
-in-memory index is created.
 
 ## Run the local LangGraph server
 
